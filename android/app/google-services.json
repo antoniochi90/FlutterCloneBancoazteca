@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "347510462029",
+    "project_id": "bancoazteca-24875",
+    "storage_bucket": "bancoazteca-24875.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347510462029:android:dd1ded3b9eeadd3c862e04",
+        "android_client_info": {
+          "package_name": "com.example.banco_azteca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347510462029-f8kibuon59hl68f42hk910tk7253eto6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwLO1CYqB9T51bAG_Z71pEh8oj00is-h8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347510462029-f8kibuon59hl68f42hk910tk7253eto6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
