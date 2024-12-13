@@ -1,9 +1,10 @@
-import 'dart:async';
-import 'package:path/path.dart';
+import 'package:banco_azteca/DataBase_Sqlite/modelDatabase/Payment_model.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:path/path.dart';
 
 class DatabaseHelper {
   static final DatabaseHelper _instance = DatabaseHelper._internal();
+
   factory DatabaseHelper() => _instance;
 
   static Database? _database;
@@ -20,22 +21,32 @@ class DatabaseHelper {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, 'payments.db');
 
-    return await openDatabase(
+    return openDatabase(
       path,
       version: 1,
-      onCreate: _onCreate,
+      onCreate: (db, version) async {
+        await db.execute('''
+          CREATE TABLE payments (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            amount REAL,
+            service TEXT,
+            payment_type TEXT,
+            persona TEXT 
+          )
+        ''');
+      },
     );
   }
 
-  Future<void> _onCreate(Database db, int version) async {
-    await db.execute('''
-      CREATE TABLE payment_history (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        payment_id INTEGER,
-        amount REAL,
-        date TEXT,
-        payment_type TEXT
-      )
-    ''');
+  Future<int> insertPayment(Payment payment) async {
+    final db = await database;
+    return await db.insert('payments', payment.toMap());
+  }
+
+  Future<List<Payment>> getPayments() async {
+    final db = await database;
+    final List<Map<String, dynamic>> maps = await db.query('payments');
+
+    return List.generate(maps.length, (i) => Payment.fromMap(maps[i]));
   }
 }

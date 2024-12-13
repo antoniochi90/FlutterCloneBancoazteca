@@ -1,3 +1,4 @@
+import 'package:banco_azteca/historial/payment_history.dart';
 import 'package:flutter/material.dart';
 import 'package:banco_azteca/ProductosScreen.dart';
 import 'package:banco_azteca/AjustesScreen.dart';
@@ -42,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
           AvisosScreen(),
           AjustesScreen(),
           PdfCreationScreen(),
+          PaymentHistory()
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -65,6 +67,10 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.picture_as_pdf_rounded),
             label: 'Estado de Cuenta',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history),
+            label: 'historial de pagos',
           ),
         ],
         currentIndex: _selectedIndex,
@@ -292,6 +298,15 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget buildPdfCreationScreen() {
+    return const Center(
+      child: Text(
+        'Ajustes',
+        style: TextStyle(fontSize: 24, color: Colors.white),
+      ),
+    );
+  }
+
+  Widget buildHistorialScreen() {
     return const Center(
       child: Text(
         'Ajustes',

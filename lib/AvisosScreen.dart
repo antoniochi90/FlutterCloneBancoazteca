@@ -34,7 +34,7 @@ class AvisosScreen extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: const Color.fromARGB(255, 29, 28, 28),
+      backgroundColor: Color.fromARGB(255, 29, 28, 28),
       body: Column(
         children: [
           const SizedBox(height: 10),
@@ -68,7 +68,7 @@ class AvisosScreen extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10),
           Expanded(
             child: ListView.builder(
               itemCount: 1, // Cambiar esto según el número de elementos
@@ -101,7 +101,7 @@ class AvisosScreen extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             Text(
               '!Realiza tus sueños con un Crédito en efectivo! Solicítalo Ahora.',
               style: TextStyle(
@@ -109,7 +109,7 @@ class AvisosScreen extends StatelessWidget {
                   color: Colors.white,
                   fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             Text(
               '20:30 hrs',
               style: TextStyle(
